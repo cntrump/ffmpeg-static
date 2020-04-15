@@ -5,6 +5,8 @@ set -e
 FFMPEG_VERSION=4.2.2
 MIN_TARGET=10.9
 
+brew update
+brew upgrade
 brew install pkg-config openssl cmake automake libtool yasm aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
 
 cd /tmp
