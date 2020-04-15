@@ -27,3 +27,7 @@ ffmpeg installed to
 
 - `/usr/local/bin/ffmpeg`
 - `/usr/local/bin/ffprobe`
+
+### Pre-Built Binaries
+
+[Here](https://github.com/cntrump/build_ffmpeg_brew/releases)
