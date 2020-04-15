@@ -1,4 +1,4 @@
-# Build FFMpeg with brew on macOS
+# Build FFMpeg with brew on macOS [![](https://travis-ci.org/cntrump/build_ffmpeg_brew.svg?branch=master)](https://travis-ci.org/cntrump/build_ffmpeg_brew)
 
 - Base on offical static build: [Static builds for macOS 64-bit](https://evermeet.cx/ffmpeg/)
 - Add AAC support

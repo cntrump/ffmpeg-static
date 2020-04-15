@@ -76,6 +76,8 @@ curl -O https://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.bz2
 tar -jxvf ./ffmpeg-${FFMPEG_VERSION}.tar.bz2
 cd ./ffmpeg-${FFMPEG_VERSION}
 
+echo Building ffmpeg-${FFMPEG_VERSION} ...
+
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 ./configure --cc=/usr/bin/clang --prefix=/usr/local --extra-version=lvv.me --enable-avisynth --enable-fontconfig --enable-gpl --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libfreetype --enable-libgsm --enable-libmodplug --enable-libmp3lame --enable-libmysofa --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvmaf --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-version3 --pkg-config-flags=--static --disable-ffplay --enable-nonfree --enable-libfdk-aac --enable-openssl --extra-cflags="-I/usr/local/opt/openssl/include -mmacosx-version-min=${MIN_TARGET}" --extra-ldflags="-L/usr/local/opt/openssl/lib -mmacosx-version-min=${MIN_TARGET}"
@@ -83,4 +85,8 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 make -j `sysctl -n hw.logicalcpu_max`
 make install
 
+/usr/local/bin/ffmpeg -version
+
 echo finished.
+
+exit 0
