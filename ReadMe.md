@@ -2,7 +2,7 @@
 
 - Base on offical static build: [Static builds for macOS 64-bit](https://evermeet.cx/ffmpeg/)
 - Add AAC support
-- Add SSL support (with OpensSL)
+- Add SSL support (with OpenSSL)
 - Build for macOS target version: `10.9+`
 
 ## Useage
