@@ -87,6 +87,8 @@ make install
 
 /usr/local/bin/ffmpeg -version
 
-echo finished.
+lipo -info /usr/local/bin/ffmpeg
+
+echo Build ffmpeg-${FFMPEG_VERSION} finished.
 
 exit 0
