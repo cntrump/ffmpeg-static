@@ -2,7 +2,10 @@
 
 set -e
 
-brew install pkg-config openssl svn cmake automake libtool yasm aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
+FFMPEG_VERSION=4.2.2
+MIN_TARGET=10.9
+
+brew install pkg-config openssl cmake automake libtool yasm aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
 
 cd /tmp
 
@@ -33,7 +36,7 @@ if [ -d ./vo-amrwbenc-0.1.3 ]; then
   rm -rf ./vo-amrwbenc-0.1.3
 fi
 
-curl -O https://iweb.dl.sourceforge.net/project/opencore-amr/vo-amrwbenc/vo-amrwbenc-0.1.3.tar.gz
+curl -O https://raw.githubusercontent.com/cntrump/build_ffmpeg_brew/master/vo-amrwbenc-0.1.3.tar.gz
 tar -zxvf ./vo-amrwbenc-0.1.3.tar.gz
 cd ./vo-amrwbenc-0.1.3
 ./configure --prefix=/usr/local --disable-shared
@@ -45,7 +48,8 @@ if [ -d ./xavs ]; then
   rm -rf ./xavs
 fi
 
-svn checkout https://svn.code.sf.net/p/xavs/code/trunk xavs
+curl -O https://raw.githubusercontent.com/cntrump/build_ffmpeg_brew/master/xavs.tar.bz2
+tar -jxvf ./xavs.tar.bz2
 cd ./xavs
 ./configure --prefix=/usr/local --host=x86_64-darwin --disable-asm
 make && make install
@@ -56,15 +60,13 @@ if [ -d ./zvbi-0.2.35 ]; then
   rm -rf ./zvbi-0.2.35
 fi
 
-curl -O https://svwh.dl.sourceforge.net/project/zapping/zvbi/0.2.35/zvbi-0.2.35.tar.bz2
+curl -O https://raw.githubusercontent.com/cntrump/build_ffmpeg_brew/master/zvbi-0.2.35.tar.bz2
 tar -jxvf ./zvbi-0.2.35.tar.bz2
 cd ./zvbi-0.2.35
 ./configure --prefix=/usr/local --disable-shared
 make && make install
 
 cd ..
-
-FFMPEG_VERSION=4.2.2
 
 if [ -d ./ffmpeg-${FFMPEG_VERSION} ]; then
   rm -rf ./ffmpeg-${FFMPEG_VERSION}
@@ -75,8 +77,6 @@ tar -jxvf ./ffmpeg-${FFMPEG_VERSION}.tar.bz2
 cd ./ffmpeg-${FFMPEG_VERSION}
 
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
-
-MIN_TARGET=10.9
 
 ./configure --cc=/usr/bin/clang --prefix=/usr/local --extra-version=lvv.me --enable-avisynth --enable-fontconfig --enable-gpl --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libfreetype --enable-libgsm --enable-libmodplug --enable-libmp3lame --enable-libmysofa --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvmaf --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-version3 --pkg-config-flags=--static --disable-ffplay --enable-nonfree --enable-libfdk-aac --enable-openssl --extra-cflags="-I/usr/local/opt/openssl/include -mmacosx-version-min=${MIN_TARGET}" --extra-ldflags="-L/usr/local/opt/openssl/lib -mmacosx-version-min=${MIN_TARGET}"
 
