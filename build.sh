@@ -15,7 +15,7 @@ if [ -d ./libmysofa ]; then
   rm -rf ./libmysofa
 fi
 
-git clone https://github.com/hoene/libmysofa.git
+git clone --depth=1 https://github.com/hoene/libmysofa.git
 cd ./libmysofa/build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTS=OFF ..
 make install mysofa-static
@@ -26,7 +26,7 @@ if [ -d ./shine ]; then
   rm -rf ./shine
 fi
 
-git clone https://github.com/toots/shine.git
+git clone --depth=1 https://github.com/toots/shine.git
 cd ./shine
 ./bootstrap
 ./configure --prefix=/usr/local --disable-shared
