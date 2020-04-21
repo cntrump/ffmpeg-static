@@ -31,3 +31,7 @@ ffmpeg installed to
 ### Pre-Built Binaries
 
 [Here](https://github.com/cntrump/build_ffmpeg_brew/releases)
+
+## Linux users
+
+[ubuntu-build-ffmpeg](https://github.com/cntrump/ubuntu-build-ffmpeg)
