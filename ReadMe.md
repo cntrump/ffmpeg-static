@@ -1,4 +1,4 @@
-# Build [FFMpeg](https://ffmpeg.org) with brew on macOS [![](https://travis-ci.org/cntrump/build_ffmpeg_brew.svg?branch=master)](https://travis-ci.org/cntrump/build_ffmpeg_brew)
+# Build [FFMpeg](https://ffmpeg.org) with brew on macOS [![](https://travis-ci.org/cntrump/build_ffmpeg_brew.svg?branch=master)](https://travis-ci.org/cntrump/brew-build-ffmpeg)
 
 - Base on static library recommended by ffmpeg.org: [Static builds for macOS 64-bit](https://evermeet.cx/ffmpeg/)
 - Add AAC support
@@ -18,7 +18,7 @@
 Run `build.sh`
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cntrump/build_ffmpeg_brew/master/build.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cntrump/brew-build-ffmpeg/master/build.sh)"
 ```
 
 ### Finished
@@ -30,7 +30,7 @@ ffmpeg installed to
 
 ### Pre-Built Binaries
 
-[Here](https://github.com/cntrump/build_ffmpeg_brew/releases)
+[Here](https://github.com/cntrump/brew-build-ffmpeg/releases)
 
 ## Linux users
 
