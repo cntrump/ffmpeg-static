@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 set -e
 
-FFMPEG_VERSION=4.2.2
+FFMPEG_VERSION=4.3.2
 MIN_TARGET=10.9
 
 brew update
@@ -67,6 +67,18 @@ tar -jxvf ./zvbi-0.2.35.tar.bz2
 cd ./zvbi-0.2.35
 ./configure --prefix=/usr/local --disable-shared
 make && make install
+
+cd ..
+
+if [ -d ./AviSynthPlus ]; then
+  rm -rf ./AviSynthPlus
+fi
+
+git clone --depth=1 -b v3.7.0 https://github.com/AviSynth/AviSynthPlus.git
+cd ./AviSynthPlus
+mkdir ./avisynth-build && cd ./avisynth-build
+cmake ../ -DHEADERS_ONLY:bool=on
+make install
 
 cd ..
 
