@@ -10,7 +10,8 @@ export CC=clang CXX=clang++
 
 brew update
 brew upgrade
-brew install pkg-config openssl cmake automake libtool yasm aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
+brew install pkg-config cmake automake libtool yasm 
+brew install -s openssl aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
 
 cd /tmp
 
