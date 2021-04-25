@@ -11,7 +11,7 @@ export CC=clang CXX=clang++
 brew update
 brew upgrade
 brew install pkg-config cmake automake libtool yasm 
-brew install -s openssl aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
+brew install openssl aom libass libbluray dav1d libgsm libmodplug lame opencore-amr openh264 openjpeg opus rubberband snappy libsoxr speex theora twolame libvidstab libvmaf libvpx wavpack webp x264 x265 xvid zimg zmq fdk-aac
 
 cd /tmp
 
@@ -110,15 +110,15 @@ cd ./ffmpeg-${FFMPEG_VERSION}
 
 echo Building ffmpeg-${FFMPEG_VERSION} ...
 
-export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
-
+export PKG_CONFIG_PATH=/usr/local/opt/openssl@1.1/lib/pkgconfig:/usr/local/lib/pkgconfig
+sysroot=`xcrun --sdk macosx --show-sdk-path` \
 ./configure --prefix=/usr/local --extra-version=lvv.me \
             --enable-avisynth --enable-fontconfig --enable-gpl --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libfreetype --enable-libgsm --enable-libmodplug --enable-libmp3lame --enable-libmysofa --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvmaf --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-version3 --pkg-config-flags=--static --disable-ffplay \
             --enable-nonfree --enable-libfdk-aac --enable-openssl \
             --cc=${CC} --cxx=${CXX} \
-            --extra-cflags="-I/usr/local/opt/openssl/include -mmacosx-version-min=${MIN_TARGET}" \
-            --extra-cxxflags="-I/usr/local/opt/openssl/include -mmacosx-version-min=${MIN_TARGET}" \
-            --extra-ldflags="-L/usr/local/opt/openssl/lib -mmacosx-version-min=${MIN_TARGET}"
+            --pkg-config-flags="--static" \
+            --extra-cflags="-Wl,-static,-search_paths_first -I${sysroot}/usr/include -I/usr/local/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libgsm/include -I/usr/local/opt/lame/include -I/usr/local/opt/opencore-amr/include -I/usr/local/opt/snappy/include -I/usr/local/opt/libsoxr/include -I/usr/local/opt/libogg/include -I/usr/local/opt/theora/include -I/usr/local/opt/twolame/include -mmacosx-version-min=${MIN_TARGET}" \
+            --extra-ldflags="-L${sysroot}/usr/lib -L/usr/local/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libgsm/lib -L/usr/local/opt/lame/lib -L/usr/local/opt/opencore-amr/lib -L/usr/local/opt/snappy/lib -L/usr/local/opt/libsoxr/lib -L/usr/local/opt/libogg/lib -L/usr/local/opt/theora/lib -L/usr/local/opt/twolame/lib -mmacosx-version-min=${MIN_TARGET}"
 
 make -j `sysctl -n hw.logicalcpu_max`
 make install
@@ -126,6 +126,7 @@ make install
 /usr/local/bin/ffmpeg -version
 
 lipo -info /usr/local/bin/ffmpeg
+otool -L /usr/local/bin/ffmpeg | grep /usr/local/opt
 
 echo Build ffmpeg-${FFMPEG_VERSION} finished.
 
