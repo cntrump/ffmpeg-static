@@ -21,6 +21,36 @@ cd ./util-macros-${ver}
 make -j ${CPU_NUM} && make install
 cd ..
 
+ver=2021.3
+
+if [ ! -f ./xorgproto-${ver}.tar.bz2 ];then
+  curl -OL https://xorg.freedesktop.org/archive/individual/proto/xorgproto-${ver}.tar.bz2
+fi
+
+if [ ! -d ./xorgproto-${ver} ];then
+  tar -xjvf ./xorgproto-${ver}.tar.bz2
+fi
+
+cd ./xorgproto-${ver}
+./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --enable-static --disable-shared
+make -j ${CPU_NUM} && make install
+cd ..
+
+ver=0.4
+
+if [ ! -f ./libpthread-stubs-${ver}.tar.bz2 ];then
+  curl -OL https://xcb.freedesktop.org/dist/libpthread-stubs-${ver}.tar.bz2
+fi
+
+if [ ! -d ./libpthread-stubs-${ver} ];then
+  tar -xvjf ./libpthread-stubs-${ver}.tar.bz2
+fi
+
+cd ./libpthread-stubs-${ver}
+./configure --prefix=/usr/local --enable-static --disable-shared
+make -j ${CPU_NUM} && make install
+cd ..
+
 ########################################################################################################################
 
 ver=1.0.9

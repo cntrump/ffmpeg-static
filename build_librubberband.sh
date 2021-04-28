@@ -16,6 +16,6 @@ cd ./rubberband-1.9.1
 if [ -d build ];then
   rm -rf build
 fi
-meson build --prefix=/usr/local -Dno_shared=true -Dfft=vdsp -Dresampler=libsamplerate
+meson build --buildtype=release --prefix=/usr/local -Dno_shared=true -Dfft=vdsp -Dresampler=libsamplerate
 ninja -C build install
 cd ..

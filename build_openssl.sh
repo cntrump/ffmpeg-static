@@ -16,7 +16,7 @@ fi
 
 cd ./openssl-${ver}
 # -static is equal to: no-pic, no-shared and no-threads
-./Configure --prefix=/usr/local no-ssl3 no-ssl3-method no-zlib no-pic no-shared no-threads \
+./Configure --prefix=/opt/local/openssl@1.1 no-ssl3 no-ssl3-method no-zlib no-pic no-shared no-threads \
                 darwin64-x86_64-cc enable-ec_nistp_64_gcc_128
 make -j ${CPU_NUM} && sudo make install
 cd ..

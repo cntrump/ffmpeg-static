@@ -50,7 +50,7 @@ cd ./libfontconfig
 if [ -d build ];then
   rm -rf build
 fi
-meson build --prefix=/usr/local -Ddoc=disabled -Dtests=disabled -Dtools=disabled --default-library=static
+meson build --buildtype=release --prefix=/usr/local -Ddoc=disabled -Dtests=disabled -Dtools=disabled --default-library=static
 ninja -C build install
 cd ..
 
@@ -62,6 +62,6 @@ cd ./libharfbuzz
 if [ -d build ];then
   rm -rf build
 fi
-meson build --prefix=/usr/local -Dcairo=disabled -Dcoretext=enabled -Dfreetype=enabled -Dglib=disabled -Dgobject=disabled -Dgraphite=disabled -Dicu=enabled -Dintrospection=disabled -Dtests=disabled --default-library=static
+meson build --buildtype=release --prefix=/usr/local -Dcairo=disabled -Dcoretext=enabled -Dfreetype=enabled -Dglib=disabled -Dgobject=disabled -Dgraphite=disabled -Dicu=enabled -Dintrospection=disabled -Dtests=disabled --default-library=static
 ninja -C build install
 cd ..

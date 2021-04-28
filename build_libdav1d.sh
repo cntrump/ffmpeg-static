@@ -16,6 +16,6 @@ cd ./dav1d-0.8.2
 if [ -d build ];then
   rm -rf build
 fi
-meson build --prefix=/usr/local -Ddefault_library=static -Dno_shared=true
+meson build --buildtype=release --prefix=/usr/local -Ddefault_library=static -Dno_shared=true
 ninja install -C build
 cd ..

@@ -9,6 +9,6 @@ if [ ! -d ./libfribidi ];then
 fi
 
 cd ./libfribidi
-meson build --prefix=/usr/local --default-library=static -Ddocs=false -Dtests=false -Dbin=false
+meson build --buildtype=release --prefix=/usr/local --default-library=static -Ddocs=false -Dtests=false -Dbin=false
 ninja -C build install
 cd ..

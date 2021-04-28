@@ -21,8 +21,8 @@ echo Building ffmpeg-${FFMPEG_VERSION} ...
             --enable-nonfree --enable-libfdk-aac --enable-openssl \
             --cc=${CC} --cxx=${CXX} \
             --pkg-config-flags="--static" \
-            --extra-cflags="-Wl,-static,-search_path_first -I${sysroot}/usr/include -I/usr/local/include -I/usr/local/include/libvmaf" \
-            --extra-ldflags="-L${sysroot}/usr/lib -L/usr/local/lib -framework Accelerate -lc++ -lz -lbrotlidec"
+            --extra-cflags="-I${sysroot}/usr/include -I/opt/local/openssl@1.1/include -I/usr/local/include -I/usr/local/include/libvmaf" \
+            --extra-ldflags="-L${sysroot}/usr/lib -L/opt/local/openssl@1.1/lib -L/usr/local/lib -framework Accelerate -lc++ -lz -lbrotlidec -lomp"
 
 make -j ${CPU_NUM}
 make install

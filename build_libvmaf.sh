@@ -12,6 +12,6 @@ cd ./libvmaf/libvmaf
 if [ -d build ];then
   rm -rf build
 fi
-meson build --prefix=/usr/local -Ddefault_library=static -Denable_tests=false --buildtype release
+meson build --buildtype=release --prefix=/usr/local -Ddefault_library=static -Denable_tests=false --buildtype release
 ninja -C build install
 cd ../..

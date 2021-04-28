@@ -2,11 +2,13 @@
 
 set -e
 
-source ./env.sh
+port install pkgconfig cmake automake libtool yasm meson ninja nasm
+port install clang-11
+port select --set clang mp-clang-11
 
-brew update
-brew upgrade
-brew install pkg-config cmake automake libtool yasm meson ninja nasm
+if [ -f /opt/local/bin/nasm ];then
+  ln -sf /opt/local/bin/nasm /usr/bin/nasm
+fi
 
 ./build_openssl.sh
 
@@ -89,7 +91,5 @@ brew install pkg-config cmake automake libtool yasm meson ninja nasm
 ./build_libzvbi.sh
 
 ./build_libavisynth-plus.sh
-
-wait
 
 ./build_ffmpeg.sh
