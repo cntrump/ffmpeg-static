@@ -14,5 +14,5 @@ fi
 
 cd ./opus-1.3.1
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-doc --disable-shared --enable-static
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

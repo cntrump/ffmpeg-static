@@ -14,5 +14,5 @@ fi
 
 cd ./opencore-amr-0.1.5
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-shared --enable-static
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

@@ -11,5 +11,5 @@ fi
 cd ./libsdl2
 ./autogen.sh
 ./configure --prefix=/usr/local --without-x --enable-hidapi --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

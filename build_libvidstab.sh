@@ -11,5 +11,5 @@ fi
 cd ./libvidstab
 mkdir -p build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=OFF -DUSE_OMP=OFF ..
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ../..

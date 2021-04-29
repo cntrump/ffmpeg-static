@@ -14,5 +14,5 @@ fi
 
 cd ./twolame-0.4.0
 ./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

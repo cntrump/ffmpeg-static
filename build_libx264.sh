@@ -10,5 +10,5 @@ fi
 
 cd ./libx264
 ./configure --prefix=/usr/local --disable-lsmash --disable-swscale --disable-ffms --enable-strip --enable-static
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

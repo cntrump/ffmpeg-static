@@ -7,7 +7,7 @@ port install clang-11
 port select --set clang mp-clang-11
 
 if [ -f /opt/local/bin/nasm ];then
-  ln -sf /opt/local/bin/nasm /usr/bin/nasm
+export NASM_EXECUTABLE=/opt/local/bin/nasm
 fi
 
 ./build_openssl.sh
@@ -91,5 +91,7 @@ fi
 ./build_libzvbi.sh
 
 ./build_libavisynth-plus.sh
+
+./build_libiconv.sh
 
 ./build_ffmpeg.sh

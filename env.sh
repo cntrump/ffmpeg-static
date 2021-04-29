@@ -6,7 +6,10 @@ export FFMPEG_VERSION=4.4
 
 MIN_TARGET=10.9
 
-export CC=/opt/local/bin/clang CXX=/opt/local/bin/clang++
+export CC=/opt/local/bin/clang \
+       CXX=/opt/local/bin/clang++ \
+       AR_FLAGS='cru'
+
 export sysroot=`xcrun --sdk macosx --show-sdk-path`
 
 export SDKROOT="${sysroot}"

@@ -15,5 +15,5 @@ fi
 cd ./libbluray-1.3.0
 ./bootstrap
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --disable-bdjava-jar --disable-examples --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

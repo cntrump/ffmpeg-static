@@ -10,5 +10,5 @@ fi
 
 cd ./libvpx/build
 ../configure --prefix=/usr/local --disable-dependency-tracking --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --disable-avx512 --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ../..

@@ -11,5 +11,5 @@ fi
 cd ./libass
 autoreconf -i
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-fontconfig --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

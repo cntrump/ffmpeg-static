@@ -11,5 +11,5 @@ fi
 cd ./libwavpack
 ./autogen.sh
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-apps --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

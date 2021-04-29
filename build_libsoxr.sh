@@ -15,7 +15,7 @@ fi
 cd ./openmp-12.0.0.src
 mkdir -p build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DLIBOMP_INSTALL_ALIASES=OFF -DLIBOMP_ENABLE_SHARED=OFF ..
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ../..
 
 ################################################################################################
@@ -31,5 +31,5 @@ fi
 cd ./soxr-0.1.3-Source
 mkdir -p build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTS=OFF ..
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

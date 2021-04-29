@@ -11,7 +11,7 @@ fi
 cd ./libpng
 autoreconf -f -i
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ######################################################################################################################
@@ -26,7 +26,7 @@ fi
 
 cd ./freetype-2.10.4
 ./configure --prefix=/usr/local --enable-freetype-config --without-harfbuzz --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ######################################################################################################################
@@ -37,7 +37,7 @@ fi
 
 cd icu4c/icu4c/source
 ./configure --prefix=/usr/local --disable-samples --disable-tests --with-library-bits=64 --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ../../..
 
 #######################################################################################################################

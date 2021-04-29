@@ -14,5 +14,5 @@ fi
 
 cd ./lame-3.100
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-debug --enable-nasm --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

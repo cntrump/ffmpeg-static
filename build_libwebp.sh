@@ -11,5 +11,5 @@ fi
 cd ./libwebp
 ./autogen.sh
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-gif --disable-gl --enable-libwebpdecoder --enable-libwebpdemux --enable-libwebpmux --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

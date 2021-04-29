@@ -4,17 +4,22 @@ set -e
 
 source ./env.sh
 
-if [ ! -f ./gettext-0.21.tar.xz ];then
-  curl -OL https://ftp.gnu.org/gnu/gettext/gettext-0.21.tar.xz
+ver=0.21
+
+if [ ! -f ./gettext-${ver}.tar.xz ];then
+  curl -OL https://ftp.gnu.org/gnu/gettext/gettext-${ver}.tar.xz
 fi
 
-if [ ! -d ./gettext-0.21 ];then
-  tar -xzvf ./gettext-0.21.tar.xz
+if [ ! -d ./gettext-${ver} ];then
+  tar -xzvf ./gettext-${ver}.tar.xz
 fi
 
-cd ./gettext-0.21/gettext-runtime
-./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+cd ./gettext-${ver}/gettext-runtime
+CFLAGS="-I/usr/local/include" \
+./configure --prefix=/usr/local --disable-dependency-tracking \
+            --disable-java --disable-csharp \
+            --enable-static --disable-shared
+make -j ${CPU_NUM} && sudo make install
 cd ../..
 
 cat <<EOF > /usr/local/lib/pkgconfig/intl.pc
@@ -24,7 +29,7 @@ includedir=\${prefix}/include
 
 Name: libintl
 Description: gettext runtime
-Version: 0.21
+Version: ${ver}
 Libs: -L\${libdir} -lintl
 Libs.private:
 Cflags: -I\${includedir}

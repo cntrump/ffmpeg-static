@@ -11,5 +11,5 @@ fi
 cd ./libshine
 ./bootstrap
 ./configure --prefix=/usr/local --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

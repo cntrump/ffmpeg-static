@@ -14,5 +14,5 @@ fi
 
 cd ./libmodplug-0.8.9.0
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

@@ -15,7 +15,7 @@ fi
 cd ./libogg-1.3.3
 autoreconf -i
 ./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 #############################################################################################################
@@ -31,7 +31,7 @@ fi
 cd ./libvorbis-1.3.7
 ./autogen.sh
 ./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 #############################################################################################################
@@ -43,7 +43,7 @@ fi
 cd ./libsndfile
 autoreconf -ivf
 ./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 #############################################################################################################
@@ -58,7 +58,7 @@ fi
 
 cd ./libsamplerate-0.1.9
 ./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 #############################################################################################################
@@ -73,5 +73,5 @@ fi
 
 cd ./speex-1.2.0
 ./configure --prefix=/usr/local --disable-debug --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

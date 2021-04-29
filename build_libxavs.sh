@@ -14,5 +14,5 @@ fi
 
 cd ./xavs
 ./configure --prefix=/usr/local --host=x86_64-darwin --disable-asm
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

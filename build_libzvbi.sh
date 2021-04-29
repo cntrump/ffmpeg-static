@@ -13,6 +13,8 @@ if [ ! -d ./zvbi-0.2.35 ]; then
 fi
 
 cd ./zvbi-0.2.35
-./configure --prefix=/usr/local --disable-shared
-make -j ${CPU_NUM} && make install
+LDFLAGS=-L/usr/lib \
+./configure --prefix=/usr/local --disable-dependency-tracking --without-doxygen \
+            --without-libiconv-prefix --disable-shared --enable-static
+make -j ${CPU_NUM} && sudo make install
 cd ..

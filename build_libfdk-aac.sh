@@ -14,5 +14,5 @@ fi
 
 cd ./fdk-aac-2.0.1
 ./configure --prefix=/usr/local --disable-dependency-tracking --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

@@ -15,5 +15,5 @@ fi
 cd ./libtheora-1.1.1
 ./autogen.sh
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-oggtest --disable-vorbistest --disable-examples --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

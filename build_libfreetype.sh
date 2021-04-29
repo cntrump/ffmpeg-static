@@ -11,7 +11,7 @@ fi
 cd ./libbrotli
 mkdir -p out && cd out
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ../..
 
 ver=2.10.4
@@ -26,5 +26,5 @@ fi
 
 cd ./freetype-${ver}
 ./configure --prefix=/usr/local --enable-freetype-config --without-harfbuzz --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..

@@ -18,7 +18,7 @@ fi
 
 cd ./util-macros-${ver}
 ./configure --prefix=/usr/local --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ver=2021.3
@@ -33,7 +33,7 @@ fi
 
 cd ./xorgproto-${ver}
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ver=0.4
@@ -48,7 +48,7 @@ fi
 
 cd ./libpthread-stubs-${ver}
 ./configure --prefix=/usr/local --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ########################################################################################################################
@@ -65,7 +65,7 @@ fi
 
 cd ./libXau-${ver}
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ########################################################################################################################
@@ -82,7 +82,7 @@ fi
 
 cd ./libXdmcp-${ver}
 ./configure --prefix=/usr/local --disable-dependency-tracking --disable-silent-rules --enable-docs=no --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ########################################################################################################################
@@ -100,7 +100,7 @@ fi
 cd ./xcb-proto-${ver}
 PYTHON=python3 \
 ./configure --prefix=/usr/local --disable-silent-rules --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
 
 ########################################################################################################################
@@ -118,5 +118,5 @@ fi
 cd ./libxcb-${ver}
 ./configure --prefix=/usr/local --enable-dri3 --enable-ge --enable-xevie --enable-xprint --enable-selinux \
             --disable-dependency-tracking --disable-silent-rules --enable-devel-docs=no --with-doxygen=no --enable-static --disable-shared
-make -j ${CPU_NUM} && make install
+make -j ${CPU_NUM} && sudo make install
 cd ..
