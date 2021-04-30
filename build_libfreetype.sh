@@ -14,6 +14,11 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
 make -j ${CPU_NUM} && sudo make install
 cd ../..
 
+rm /usr/local/lib/libbrotli*.dylib
+ln -sf /usr/local/lib/libbrotlicommon-static.a /usr/local/lib/libbrotlicommon.a
+ln -sf /usr/local/lib/libbrotlidec-static.a /usr/local/lib/libbrotlidec.a
+ln -sf /usr/local/lib/libbrotlienc-static.a /usr/local/lib/libbrotlienc.a
+
 ver=2.10.4
 
 if [ ! -f ./freetype-${ver}.tar.xz ];then
