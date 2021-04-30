@@ -7,7 +7,7 @@ port install clang-11
 port select --set clang mp-clang-11
 
 if [ -f /opt/local/bin/nasm ];then
-export NASM_EXECUTABLE=/opt/local/bin/nasm
+  ln -sf opt/local/bin/nasm /usr/bin/nasm
 fi
 
 ./build_openssl.sh
